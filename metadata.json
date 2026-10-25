@@ -1,0 +1,6 @@
+{
+  "name": "TITAN TRADER — Anime Trading Academy",
+  "description": "Master candlestick analysis, chart patterns, and market risk management with a strict anime military mentor in a dark tactical interface.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

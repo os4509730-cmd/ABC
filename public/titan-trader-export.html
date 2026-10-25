@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TITAN TRADER — Cadet Dossier & Strategic Field Manual</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #08090c;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      padding: 30px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #0f1218;
+      border: 1px solid #27272a;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+    .header {
+      border-bottom: 2px solid #b91c1c;
+      padding-bottom: 24px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .title-group h1 {
+      font-size: 26px;
+      color: #ffffff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .badge-vanguard {
+      display: inline-block;
+      background: #7f1d1d;
+      color: #fca5a5;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .meta {
+      color: #71717a;
+      font-size: 12px;
+      text-align: right;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 35px;
+    }
+    .stat-card {
+      background: #181b24;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+    .section-title {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #ef4444;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid #1f242e;
+      padding-bottom: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 35px;
+      background: #141720;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th {
+      background: #1c202c;
+      color: #cbd5e1;
+      padding: 12px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-align: left;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #1f242e;
+    }
+    .cheat-sheet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+      margin-bottom: 35px;
+    }
+    .cheat-card {
+      background: #141720;
+      border: 1px solid #27272a;
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .cheat-card h4 {
+      font-size: 14px;
+      color: #f8fafc;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cheat-card p {
+      font-size: 12px;
+      color: #94a3b8;
+      margin-bottom: 10px;
+    }
+    .rule-tag {
+      font-size: 11px;
+      background: #1c202c;
+      padding: 4px 8px;
+      border-radius: 6px;
+      color: #fbbf24;
+      display: block;
+      font-family: monospace;
+    }
+    .disclaimer {
+      margin-top: 40px;
+      padding: 16px;
+      background: rgba(185, 28, 28, 0.1);
+      border: 1px solid rgba(185, 28, 28, 0.3);
+      border-radius: 10px;
+      font-size: 11px;
+      color: #fca5a5;
+      line-height: 1.6;
+    }
+    .print-btn {
+      background: #dc2626;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    @media print {
+      body { background: white; color: black; padding: 0; }
+      .container { border: none; box-shadow: none; padding: 10px; }
+      .print-btn { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: right;">
+      <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+
+    <header class="header">
+      <div class="title-group">
+        <h1>⚔️ TITAN TRADER</h1>
+        <div class="badge-vanguard">VANGUARD CADET DOSSIER &amp; TACTICAL MANUAL</div>
+      </div>
+      <div class="meta">
+        <div>Cadet Academy Reference Manual</div>
+        <div>Instructor: Captain Mikoto</div>
+      </div>
+    </header>
+
+    <!-- Cadet Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Cadet Rank</div>
+        <div class="stat-value" style="color: #ef4444;">🛡️ Wall Cadet</div>
+        <div style="font-size: 11px; color: #71717a; margin-top: 4px;">Level 1</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Tactical XP</div>
+        <div class="stat-value" style="color: #fbbf24;">45 XP</div>
+        <div style="font-size: 11px; color: #71717a; margin-top: 4px;">Next Rank at 60 XP</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Virtual Diamonds</div>
+        <div class="stat-value" style="color: #38bdf8;">10 💎</div>
+        <div style="font-size: 11px; color: #71717a; margin-top: 4px;">Drill Bounties</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active Streak</div>
+        <div class="stat-value" style="color: #f97316;">1 Day 🔥</div>
+        <div style="font-size: 11px; color: #71717a; margin-top: 4px;">8 Full Chapters</div>
+      </div>
+    </div>
+
+    <!-- Chapter Progression Table -->
+    <h3 class="section-title">📜 Curriculum Battle Record (8 Chapters)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Chapter</th>
+          <th>Tactical Focus</th>
+          <th style="text-align: center;">Status</th>
+          <th style="text-align: center;">Target</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">📜 Ch 1: Candlestick Basics</td>
+          <td style="color: #94a3b8; font-size: 13px;">The Genesis of Market Warfare</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(16,185,129,0.15); border: 1px solid #10b981; color: #34d399; font-size: 11px; font-weight: bold;">ACTIVE</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+30 XP / +5 💎</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">🗡️ Ch 2: Candle Anatomy</td>
+          <td style="color: #94a3b8; font-size: 13px;">Wicks, Bodies &amp; Price Extremes</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(16,185,129,0.15); border: 1px solid #10b981; color: #34d399; font-size: 11px; font-weight: bold;">ACTIVE</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+40 XP / +5 💎</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">⚡ Ch 3: Candlestick Patterns</td>
+          <td style="color: #94a3b8; font-size: 13px;">Recognizing Formations of Power</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(16,185,129,0.15); border: 1px solid #10b981; color: #34d399; font-size: 11px; font-weight: bold;">ACTIVE</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+50 XP / +6 💎</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">🌊 Ch 4: Market Trends</td>
+          <td style="color: #94a3b8; font-size: 13px;">Flow with the Tides of War</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(239,68,68,0.1); border: 1px solid #ef4444; color: #f87171; font-size: 11px;">LVL 2 REQ</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+45 XP / +6 💎</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">🏰 Ch 5: Support and Resistance</td>
+          <td style="color: #94a3b8; font-size: 13px;">The Iron Walls of the Order Book</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(239,68,68,0.1); border: 1px solid #ef4444; color: #f87171; font-size: 11px;">LVL 2 REQ</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+50 XP / +6 💎</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">📊 Ch 6: Volume and Indicators</td>
+          <td style="color: #94a3b8; font-size: 13px;">Sonar in the Fog of War</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(239,68,68,0.1); border: 1px solid #ef4444; color: #f87171; font-size: 11px;">LVL 3 REQ</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+55 XP / +7 💎</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">🛡️ Ch 7: Risk Management</td>
+          <td style="color: #94a3b8; font-size: 13px;">The Shield That Keeps You Alive</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(239,68,68,0.1); border: 1px solid #ef4444; color: #f87171; font-size: 11px;">LVL 3 REQ</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+60 XP / +8 💎</td>
+        </tr>
+        <tr>
+          <td style="font-weight: bold; color: #f1f5f9;">👑 Ch 8: Final Exam: Titan Wall Trial</td>
+          <td style="color: #94a3b8; font-size: 13px;">The Ultimate Cadet Graduation Gauntlet</td>
+          <td style="text-align: center;"><span style="display:inline-block; padding: 2px 8px; border-radius: 9999px; background: rgba(239,68,68,0.1); border: 1px solid #ef4444; color: #f87171; font-size: 11px;">LVL 4 REQ</span></td>
+          <td style="text-align: center; color: #fbbf24; font-family: monospace;">+100 XP / +15 💎</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Tactical Candlestick Cheat Sheet -->
+    <h3 class="section-title">⚡ High-Probability Candlestick Cheat Sheet</h3>
+    <div class="cheat-sheet-grid">
+      <div class="cheat-card">
+        <h4>🔨 Hammer <span style="color:#10b981; font-size:11px;">BULLISH REVERSAL</span></h4>
+        <p>Forms after a downtrend. Long lower wick (2x body) proves buyers defended the support floor.</p>
+        <span class="rule-tag">STOP-LOSS: 1-2 ticks beneath lowest wick tip.</span>
+      </div>
+
+      <div class="cheat-card">
+        <h4>☄️ Shooting Star <span style="color:#ef4444; font-size:11px;">BEARISH REVERSAL</span></h4>
+        <p>Forms at resistance peak. Long upper shadow proves bulls were repelled and ambushed.</p>
+        <span class="rule-tag">STOP-LOSS: Right above peak of upper wick.</span>
+      </div>
+
+      <div class="cheat-card">
+        <h4>🛡️ Bullish Engulfing <span style="color:#10b981; font-size:11px;">MOMENTUM SHIFT</span></h4>
+        <p>Green body completely engulfs prior red body. Complete buyer takeover of supply.</p>
+        <span class="rule-tag">STOP-LOSS: Below the low of the green engulfing bar.</span>
+      </div>
+
+      <div class="cheat-card">
+        <h4>🩸 Bearish Engulfing <span style="color:#ef4444; font-size:11px;">TITAN BREACH</span></h4>
+        <p>Crushing red candle swallows previous green candle. Sellers seize total control.</p>
+        <span class="rule-tag">STOP-LOSS: Just above the high of the red engulfing bar.</span>
+      </div>
+
+      <div class="cheat-card">
+        <h4>⚖️ Long-Legged Doji <span style="color:#fbbf24; font-size:11px;">EQUILIBRIUM / INDECISION</span></h4>
+        <p>Open and close are identical. Extreme battle range but zero net advance. Wait for confirmation.</p>
+        <span class="rule-tag">EXECUTION: Trade the breakout above or below extreme wick.</span>
+      </div>
+
+      <div class="cheat-card">
+        <h4>⚔️ Marubozu <span style="color:#38bdf8; font-size:11px;">PURE CONVICTION</span></h4>
+        <p>Zero wicks. Absolute dominance from the opening bell to the close. Strong breakout fuel.</p>
+        <span class="rule-tag">STOP-LOSS: Halfway point of the Marubozu body.</span>
+      </div>
+    </div>
+
+    <!-- Risk Management Shield Doctrine -->
+    <h3 class="section-title">🛡️ The Iron Shield Doctrine (Risk Management)</h3>
+    <div style="background: #141720; border: 1px solid #27272a; border-radius: 12px; padding: 20px; margin-bottom: 25px;">
+      <ul style="list-style: none;">
+        <li style="margin-bottom: 10px; font-size: 13px;">
+          <strong style="color: #ef4444;">1. The 1% Golden Rule:</strong> Never risk more than 1% to 2% of total account capital on a single engagement.
+        </li>
+        <li style="margin-bottom: 10px; font-size: 13px;">
+          <strong style="color: #fbbf24;">2. Position Sizing Equation:</strong> <code>Allowed Units = (Account Balance × Risk %) ÷ |Entry Price - Stop Loss Price|</code>
+        </li>
+        <li style="margin-bottom: 10px; font-size: 13px;">
+          <strong style="color: #38bdf8;">3. Asymmetric Reward-to-Risk:</strong> Require at least a 1:2 R:R ratio on every planned trade. At 1:2, a 40% win rate yields positive expectancy.
+        </li>
+        <li style="font-size: 13px;">
+          <strong style="color: #34d399;">4. Invalidation Rule:</strong> Set your stop-loss where your thesis is proven wrong—never hold through hope.
+        </li>
+      </ul>
+    </div>
+
+    <!-- Official Mentor Endorsement -->
+    <div style="border-left: 3px solid #b91c1c; padding-left: 16px; margin: 30px 0; font-style: italic; color: #cbd5e1; font-size: 13px;">
+      &ldquo;Cadet, you have studied the charts, identified the reversal titans, and drilled the 1% doctrine. Protect your capital with your life, respect the order book, and never trade on impulse.&rdquo;
+      <div style="font-style: normal; font-weight: bold; color: #ef4444; margin-top: 6px;">— Commander Mikoto, Vanguard Academy</div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>OFFICIAL SIMULATION NOTICE &amp; DISCLAIMER:</strong>
+      TITAN TRADER is an educational trading academy simulation featuring original anime characters. All data feeds, charts, and patterns are synthetic cadet drill simulations. This document does not constitute financial advice, investment recommendations, or guaranteed trading signals.
+    </div>
+  </div>
+</body>
+</html>
